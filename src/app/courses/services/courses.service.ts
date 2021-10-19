@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Course } from '../model/course';
+import { first, tap } from "rxjs/operators";
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +13,13 @@ export class CoursesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  findAll(): Course[] {
-    return [
-      {_id: "1", name: "Angular 8", category: "Angular"},
-      {_id: "2", name: "AngularJS", category: "Angular"},
-      {_id: "3", name: "Spring + Angular", category: "Spring, Angular"},
-      {_id: "4", name: "Spring", category: "Spring"}
-    ];
+  private readonly API = '/assets/courses.json';
+
+  findAll() {
+    return this.httpClient.get<Course[]>(this.API)
+    .pipe(
+      first(),
+      tap(courses => console.log(courses))
+    )
   }
 }
