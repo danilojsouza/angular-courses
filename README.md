@@ -2,12 +2,13 @@
 
 >Status: Developing 👨‍💻
 
-### It's a web application that is part of the Angular and Spring boot Course instructed by Loiane Groner.
+### It's a web application that manage courses and uses the most updated technologies currently.
 
 ## Some modules is:
 + Courses
 + App
 + AppMaterial (Angular Material)
++ Shared (Dialogs, Commons, etc)
 
 ## Technologies used:
 <table>
